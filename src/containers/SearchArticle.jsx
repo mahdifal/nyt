@@ -1,29 +1,20 @@
-import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import debounce from "lodash.debounce";
-import { fetchSearch } from "../redux/searchSlice";
+import useBusiness from "../hooks/useBusiness";
+import ResultsList from "../components/ResultsList";
+import SearchInput from "../components/SearchInput";
+import SearchPagination from "../components/SearchPagination";
 
 const SearchArticle = () => {
-  const dispatch = useDispatch();
-
-  const postList = useSelector(({ search: { searchList } }) => searchList);
-
-  const changeHandler = (event) => {
-    dispatch(fetchSearch({ value: event.target.value }));
-  };
-  const debouncedChangeHandler = useCallback(debounce(changeHandler, 800), []);
+  const [debouncedChangeHandler, docs, totalPageCount, searchTerm] =
+    useBusiness();
 
   return (
     <div>
-      <h1>Search List</h1>
-      <input
-        type="text"
-        onChange={debouncedChangeHandler}
-        placeholder="Search a article ..."
+      <SearchInput onChangeHandler={debouncedChangeHandler} />
+      <ResultsList docs={docs} />
+      <SearchPagination
+        searchTerm={searchTerm}
+        totalPageCount={totalPageCount}
       />
-      {postList?.map((item) => (
-        <div key={item._id}>{item.abstract}</div>
-      ))}
     </div>
   );
 };
