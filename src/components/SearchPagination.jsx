@@ -9,24 +9,28 @@ function SearchPagination({ searchTerm, totalPageCount }) {
 
   return (
     <div>
-      <button
-        onClick={() => {
-          dispatch(fetchSearch({ searchTerm, page: page - 1 }));
-          setPage((prev) => prev - 1);
-        }}
-        disabled={page === 0}
-      >
-        -
-      </button>
-      <button
-        onClick={() => {
-          dispatch(fetchSearch({ searchTerm, page: page + 1 }));
-          setPage((page) => page + 1);
-        }}
-        disabled={page === totalPageCount}
-      >
-        +
-      </button>
+      {totalPageCount > 0 && (
+        <>
+          <button
+            onClick={() => {
+              dispatch(fetchSearch({ searchTerm, page: page - 1 }));
+              setPage((prev) => prev - 1);
+            }}
+            disabled={page === 0}
+          >
+            -
+          </button>
+          <button
+            onClick={() => {
+              dispatch(fetchSearch({ searchTerm, page: page + 1 }));
+              setPage((page) => page + 1);
+            }}
+            disabled={page === totalPageCount}
+          >
+            +
+          </button>
+        </>
+      )}
     </div>
   );
 }

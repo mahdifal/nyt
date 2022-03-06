@@ -21,7 +21,7 @@ const initialState = {
 };
 
 const searchSlice = createSlice({
-  name: "posts",
+  name: "search",
   initialState,
   extraReducers: {
     [fetchSearch.fulfilled]: (state, action) => {
