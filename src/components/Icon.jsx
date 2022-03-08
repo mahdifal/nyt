@@ -7,7 +7,11 @@ const Icon = ({ name = "search", size = 1, color = "#000", spin }) => {
   return (
     <>
       {spin ? (
-        <span style={style} className={`icon-${name} animate-spin`}></span>
+        <span
+          style={style}
+          className={`icon-${name} animate-spin`}
+          data-testid="spin"
+        ></span>
       ) : (
         <span style={style} className={`icon-${name}`}></span>
       )}

@@ -12,6 +12,7 @@ function SearchInput({ onChangeHandler }) {
               onChange={onChangeHandler}
               placeholder="Search articles ..."
               className="form-control"
+              data-testid="search-input"
             />
             <div className="search-icon-position">
               <Icon name="search" color="#6c757d" size="1.5" />
