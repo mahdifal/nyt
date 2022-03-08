@@ -15,6 +15,7 @@ function useBusiness() {
     dispatch(fetchSearch({ searchTerm: event.target.value }));
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedChangeHandler = useCallback(debounce(changeHandler, 500), []);
 
   const {
@@ -25,7 +26,13 @@ function useBusiness() {
 
   const totalPageCount = Math.ceil(meta?.hits / 10);
 
-  return [debouncedChangeHandler, docs, totalPageCount, searchTerm];
+  return [
+    debouncedChangeHandler,
+    docs,
+    totalPageCount,
+    searchTerm,
+    searchResults,
+  ];
 }
 
 export default useBusiness;

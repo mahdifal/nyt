@@ -14,13 +14,7 @@ const useSingleArticle = () => {
     dispatch(fetchArticle(urlID));
   }, [dispatch, urlID]);
 
-  const {
-    singleArticle: { docs },
-  } = article;
-
-  const date = new Date(docs[0].pub_date);
-
-  return [docs, date];
+  return article;
 };
 
 export default useSingleArticle;

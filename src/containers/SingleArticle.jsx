@@ -1,13 +1,17 @@
+import { Container } from "react-bootstrap";
 import ArticleResult from "../components/ArticleResult";
+import HeaderSearch from "../components/HeaderSearch";
 import useSingleArticle from "../hooks/useSingleArticle";
 
 function SingleArticle() {
-  const [docs, date] = useSingleArticle();
-
+  const article = useSingleArticle();
   return (
-    <div>
-      <ArticleResult docs={docs} date={date} />
-    </div>
+    <>
+      <HeaderSearch />
+      <Container>
+        <ArticleResult data={article} />
+      </Container>
+    </>
   );
 }
 

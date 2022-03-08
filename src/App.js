@@ -1,21 +1,23 @@
+import { Suspense, lazy } from "react";
 import { Provider } from "react-redux";
-import store from "./redux/store";
-import "./App.css";
-import SearchArticle from "./containers/SearchArticle";
-import SingleArticle from "./containers/SingleArticle";
-import NotFound from "./components/NotFound";
 import { Routes, Route } from "react-router-dom";
+import Loading from "./components/Loading";
+import store from "./redux/store";
+
+const SearchArticle = lazy(() => import("./containers/SearchArticle"));
+const SingleArticle = lazy(() => import("./containers/SingleArticle"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<SearchArticle />} />
           <Route path="//nyt://:name/:id" element={<SingleArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
+      </Suspense>
     </Provider>
   );
 }

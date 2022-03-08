@@ -1,5 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import axios from "../apis/nyt";
+
+export const clearArticle = createAction("clear/article");
 
 export const fetchArticle = createAsyncThunk("fetch/article", async (data) => {
   const response = await axios.get(
@@ -23,18 +25,22 @@ const initialState = {
 const articleSlice = createSlice({
   name: "article",
   initialState,
-  extraReducers: {
-    [fetchArticle.fulfilled]: (state, action) => {
-      state.singleArticle = action.payload;
-      state.fetching = false;
-    },
-    [fetchArticle.pending]: (state) => {
-      state.fetching = true;
-    },
-    [fetchArticle.rejected]: (state) => {
-      state.fetching = false;
-      state.errorMessage = "Something went wrong!";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticle.fulfilled, (state, action) => {
+        state.singleArticle = action.payload;
+        state.fetching = false;
+      })
+      .addCase(fetchArticle.pending, (state) => {
+        state.fetching = true;
+      })
+      .addCase(fetchArticle.rejected, (state) => {
+        state.errorMessage = "Something went wrong!";
+        state.fetching = false;
+      })
+      .addCase(clearArticle, () => {
+        return initialState;
+      });
   },
 });
 
