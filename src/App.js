@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Suspense, lazy } from "react";
+import { Provider } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+import Loading from "./components/Loading";
+import store from "./redux/store";
+
+const SearchArticle = lazy(() => import("./containers/SearchArticle"));
+const SingleArticle = lazy(() => import("./containers/SingleArticle"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<SearchArticle />} />
+          <Route path="//nyt://:name/:id" element={<SingleArticle />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </Provider>
   );
 }
 

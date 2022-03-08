@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Grover frontend challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## _New York Times Article Search_
 
-## Available Scripts
+## Packages
 
-In the project directory, you can run:
+- redux, @reduxjs/toolkit, react-redux
+- axios
+- bootstrap, react-bootstrap, fontello (icons)
+- react-router-dom
+- lodash.debounce
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+App requires [Node.js](https://nodejs.org/) v10+ to run.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Install the dependencies and start the project.
 
-### `npm test`
+```sh
+cd project
+npm i
+npm run start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For production ...
 
-### `npm run build`
+```sh
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### For access to nty apis:
 
-### `npm run eject`
+1- please register on [NTY](https://developer.nytimes.com/) and get the api key
+2- rename `.env.example` file to `.env` in project
+3- write url address and api key in the `.env` file
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+REACT_APP_APP_URL=https://api.nytimes.com/svc/search/v2/articlesearch.json
+REACT_APP_API_KEY=YOUR_API_KEY
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- final api look like this
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=YOUR_API_KEY
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4- run the project
 
-## Learn More
+```sh
+npm run start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5- for run test
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+npm run test
+```
 
-### Code Splitting
+### Thanks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for this opportunity and I hope to join your team soon :)
+here are my <mehdi.kindly@gmail.com> and [website](https://www.mahdifalamarzi.info).
