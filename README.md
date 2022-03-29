@@ -1,4 +1,4 @@
-# Grover frontend challenge
+# React Project
 
 ## _New York Times Article Search_
 
@@ -63,5 +63,5 @@ npm run test
 
 ### Thanks
 
-Thank you for this opportunity and I hope to join your team soon :)
+Thank you for your consideration please give me feedback :)
 here are my <mehdi.kindly@gmail.com> and [website](https://www.mahdifalamarzi.info).
