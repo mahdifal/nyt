@@ -3,7 +3,7 @@
 ## _New York Times Article Search_
 
 <p align="center">
-  <img src="https://github.com/mahdifal/nyt/" height="300"/>
+  <img src="https://raw.githubusercontent.com/mahdifal/nyt/master/src/assets/img/banner.png" height="300"/>
 </p>
 
 ## Packages
