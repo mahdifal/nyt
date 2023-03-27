@@ -5,7 +5,7 @@ export const clearArticle = createAction("clear/article");
 
 export const fetchArticle = createAsyncThunk("fetch/article", async (data) => {
   const response = await axios.get(
-    `/articlesearch.json?api-key=${process.env.REACT_APP_API_KEY}`,
+    `/articlesearch.json?api-key=Hh4BBgBu5AyzPkLCAs7iccpOT2GM3E14`,
     {
       params: {
         fq: `_id:("${data}")`,
