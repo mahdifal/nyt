@@ -3,7 +3,7 @@ import axios from "../apis/nyt";
 
 export const fetchSearch = createAsyncThunk("fetch/search", async (data) => {
   const response = await axios.get(
-    `/articlesearch.json?q=${data.searchTerm}&api-key=${process.env.REACT_APP_API_KEY}`,
+    `/articlesearch.json?q=${data.searchTerm}&api-key=Hh4BBgBu5AyzPkLCAs7iccpOT2GM3E14`,
     {
       params: {
         page: data.page || 0,
